@@ -16,6 +16,12 @@ function createArtistsBubble(error, countries) {
   var svg,
       circles,
       circleSize = { min: 10, max: 80 };
+    
+    if(checkedOne == "optionsRadios2") {
+       circleSize = { min: 90, max: 120 };
+    }
+    
+    
   var circleRadiusScale = d3.scaleSqrt()
     .domain(populationExtent)
     .range([circleSize.min, circleSize.max]);

@@ -16,6 +16,11 @@ function createMenulBubbleChart(error, countries, continentNames) {
   var svg,
       circles,
       circleSize = { min: 10, max: 80 };
+    
+    if(checkedOne == "optionsRadios2") {
+       circleSize = { min: 40, max: 80 };
+    }    
+    
   var circleRadiusScale = d3.scaleSqrt()
     .domain(populationExtent)
     .range([circleSize.min, circleSize.max]);

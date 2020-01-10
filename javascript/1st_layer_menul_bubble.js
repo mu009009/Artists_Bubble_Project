@@ -15,7 +15,7 @@ function create1st_MenulBubble(error, countries, continentNames) {
       height = 800;
   var svg,
       circles,
-      circleSize = { min: 10, max: 80 };
+      circleSize = { min: 50, max: 120 };
   var circleRadiusScale = d3.scaleSqrt()
     .domain(populationExtent)
     .range([circleSize.min, circleSize.max]);
