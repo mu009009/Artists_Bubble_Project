@@ -164,7 +164,7 @@ function createArtistsBubble(error, countries) {
           .attr("height", 1)
           // xMidYMid: center the image in the circle
           // slice: scale the image to fill the circle
-          .attr("preserveAspectRatio", "xMidYMid slice")
+          .attr("preserveAspectRatio", "xMidYMid meet")
           .attr("xlink:href", function(d) {
             return d.Artists_Image;
           });

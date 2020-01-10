@@ -38,3 +38,8 @@ circle {
 .continent-key-element text {
   fill: white;
 }
+
+.radio {
+    margin-left: 25%;
+    margin-right: 25%
+}

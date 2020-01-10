@@ -20,6 +20,7 @@
     
     <script src="javascript/script.js"></script>
     <script src="javascript/menul_bubble.js"></script>
+    <script src="javascript/1st_layer_menul_bubble.js"></script>
   <title>D3 Country Bubble Chart</title>
 </head>
 <body>
@@ -36,6 +37,24 @@
         <span>
             <label><input id="flags" type="radio" name="fill" value="flags" style="display: none"></label>
         </span>
+        <div class = "col-4">
+        </div>
+        <div class="col-4">
+            <div class="radio" style="float: left; text-align: center">
+              <label>
+                <input class="radioBut" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                  KeyWords
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input class="radioBut" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                 Theme & Art Categoary
+              </label>
+            </div>
+        </div>
+        <div class="col-4">
+        </div>
 
     </div>
         
@@ -62,6 +81,9 @@
     var TagsData = [];
     var TagsID = 0;
     var SelectedData = [];
+    var checkedOne = "optionsRadios1";
+    
+    radioListener();
     
     //窗口改变时刷新
     $( window ).resize(function() {
@@ -71,7 +93,7 @@
     d3.queue()
         .defer(d3.csv, "key_words_data.csv")
         .defer(d3.json,"artists_category.json")
-        .await(createMenulBubbleChart);
+        .await(createMenulBubbleChart);     
     
     //reset button function
     $('#reset_btn').on('click', function(event) {
@@ -83,36 +105,56 @@
         //input the TagsData;
         var targetData = TagsData;
         //reset the whole visualization
-        d3.queue()
-            .defer(d3.csv, "Artists_Data.csv")
-            .await(refresh_new_bubbles);
         
-        //drawing the artists circle
+        //choose the way to draw the artists circle
+        switch(checkedOne){
+            case "optionsRadios1":
+                d3.queue()
+                .defer(d3.csv, "Artists_Data.csv")
+                .await(refresh_new_bubbles);
+                break;
+            case "optionsRadios2":
+                d3.queue()
+                .defer(d3.csv, "Artists_Selected_Match_Data.csv")
+                .await(refresh_new_bubbles);
+                break;
+        }
     });
     
-    function matchString(targetData,artistsArray,callback){
+    function matchString(targetData,artistsArray,mode, callback){
         
         var filterArtists = [];
         
         //match the artists with the TagsData;
         for(var i=0; i<artistsArray.length; i++){
+            var matchingTime = 0;
             for(var j=0; j<targetData.length;j++){
                 //split str, match only with keywords
                 var ifmatch = false;
-                var matchData = targetData[j].name.trim().split(/\s+/);
-                for(var z=0; z<matchData.length; z++){
-                    if(artistsArray[i].Artists_Texts.search(matchData[z])!=-1){
-                        filterArtists.push(artistsArray[i]);
-                        ifmatch = true;
+                if( mode == 1) {
+                    var matchData = targetData[j].name.trim().split(/\s+/);
+                    for(var z=0; z<matchData.length; z++){
+                        if(artistsArray[i].Artists_Texts.search(matchData[z])!=-1){
+                            filterArtists.push(artistsArray[i]);
+                            ifmatch = true;
+                            break;
+                        }                    
+                    }
+                    // when match the string, break the keywords loop, run another artists Matching
+                    if(ifmatch){
                         break;
                     }                    
-                }
-                // when match the string, break the keywords loop, run another artists Matching
-                if(ifmatch){
-                    break;
+                } else {
+                    if((artistsArray[i].Artists_Texts.search(targetData[j].name))!=-1){
+                        matchingTime += 1;
+                        if(matchingTime == targetData.length){
+                                filterArtists.push(artistsArray[i]);
+                                break;
+                            }
+                        }
+                    }
                 }
             }
-        }
         
         if(callback){
             callback(filterArtists);
@@ -123,8 +165,14 @@
     function refresh_new_bubbles(error, data){
         
         var artistsArray = data;
-        
-        matchString(TagsData,artistsArray,updatetheCircleMap)
+        switch(checkedOne){
+            case "optionsRadios1":
+                matchString(TagsData,artistsArray,1,updatetheCircleMap);
+                break;
+            case "optionsRadios2":
+                matchString(TagsData,artistsArray,0,updatetheCircleMap);
+                break;
+        }
     }
     
     function updatetheCircleMap(filterArtists){
@@ -136,6 +184,51 @@
         
         //draw new circle
         createArtistsBubble(null,filterArtists)
+    }
+    
+    function updatetheCircleMap(filterArtists){
+        console.log('call back running');
+        console.log(filterArtists);
+        //remove current layout
+        $('#bubble-chart').empty();
+        $('#flags').attr('checked','checked');
+        
+        //draw new circle
+        createArtistsBubble(null,filterArtists)
+    }
+    
+    function radioListener() {
+        d3.selectAll('.radioBut')
+          .on("change", function() {
+            var radioList = document.getElementsByClassName("radioBut");
+            for(i=0;i<radioList.length;i++){
+                if(radioList[i].checked){
+                    checkedOne = radioList[i].id;
+                    break;
+                }
+            }
+            updatePainting(checkedOne)
+          });
+    }
+    
+    function updatePainting(currentMode){
+        console.log(currentMode);
+        switch(currentMode){
+            case 'optionsRadios1': 
+                $('#bubble-chart').empty();
+                d3.queue()
+                    .defer(d3.csv, "key_words_data.csv")
+                    .defer(d3.json,"artists_category.json")
+                    .await(createMenulBubbleChart);
+                break;
+            case 'optionsRadios2':
+                $('#bubble-chart').empty();
+                d3.queue()
+                    .defer(d3.csv, "selected_key_words_data.csv")
+                    .defer(d3.json,"race_series.json")
+                    .await(create1st_MenulBubble);
+                break;
+        }
     }
 
 </script>
