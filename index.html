@@ -147,7 +147,7 @@
                 } else {
                     if((artistsArray[i].Artists_Texts.search(targetData[j].name))!=-1){
                         matchingTime += 1;
-                        if(matchingTime == targetData.length){
+                        if(matchingTime >= 2){
                                 filterArtists.push(artistsArray[i]);
                                 break;
                             }

@@ -108,7 +108,7 @@ function createArtistsBubble(error, countries) {
   function updateCircles() {
     circles
       .attr("fill", function(d) {
-        return flagFill() ? "url(#" + d.Artists_Name + ")" : continentColorScale(d.ContinentCode);
+        return "url(#" + d.Artists_Code + ")";
       });
   }
 
@@ -149,17 +149,18 @@ function createArtistsBubble(error, countries) {
   }
     
   function addFlagDefinitions() {
+      
     var defs = svg.append("defs");
     defs.selectAll(".flag")
       .data(countries)
       .enter()
         .append("pattern")
-        .attr("id", function(d) { return d.Artists_Name; })
+        .attr("id", function(d) { return d.Artists_Code; })
         .attr("class", "flag")
         .attr("width", "100%")
         .attr("height", "100%")
         .attr("patternContentUnits", "objectBoundingBox")
-          .append("image")
+          .append("jpg:image")
           .attr("width", 1)
           .attr("height", 1)
           // xMidYMid: center the image in the circle
