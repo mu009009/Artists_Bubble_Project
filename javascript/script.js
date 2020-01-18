@@ -18,7 +18,7 @@ function createArtistsBubble(error, countries) {
       circleSize = { min: 10, max: 80 };
     
     if(checkedOne == "optionsRadios2") {
-       circleSize = { min: 90, max: 120 };
+       circleSize = { min: 40, max: 160 };
     }
     
     
@@ -84,6 +84,10 @@ function createArtistsBubble(error, countries) {
       .enter()
         .append("circle")
         .attr("r", function(d) { return circleRadiusScale(d.Weight); })
+        .style("stroke",function(d){
+//            return saveColorScale(d.Group_Code);
+              return "rgb(210,210,210)";
+        })
         .on("mouseover", function(d) {
           updateCountryInfo(d);
         })
@@ -105,7 +109,9 @@ function createArtistsBubble(error, countries) {
       
     function keyClickFunction(country){
         //jump to the link window
-        window.location.href = country.Primary_Link
+        if(country.Primary_Link.length > 0) {
+            window.location.href = country.Primary_Link
+        }
     }
       
   }

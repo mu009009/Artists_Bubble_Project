@@ -10,6 +10,7 @@ function createMenulBubbleChart(error, countries, continentNames) {
   var continents = d3.set(countries.map(function(country) { return country.Group_Code; }));
   var continentColorScale = d3.scaleOrdinal(d3.schemeCategory10)
         .domain(continents.values());
+//  saveColorScale = continentColorScale;
 
   var width = window.innerWidth,
       height = 800;
@@ -57,52 +58,52 @@ function createMenulBubbleChart(error, countries, continentNames) {
     translateContinentKey("translate(0," + (height - onScreenYOffset) + ")");
 
     function createContinentKey() {
-      var keyWidth = keyElementWidth * continents.values().length;
-      var continentKeyScale = d3.scaleBand()
-        .domain(continents.values())
-        .range([(width - keyWidth) / 2, (width + keyWidth) / 2]);
-        
-        
-        //continent-key是底部的颜色图例栏
-      svg.append("g")
-        .attr("class", "continent-key")
-        .attr("transform", "translate(0," + (height + offScreenYOffset) + ")")
-        .selectAll("g")
-        .data(continents.values())
-        .enter()
-          .append("g")
-            .attr("class", "continent-key-element");
-        
-        //画底部矩形
-      d3.selectAll("g.continent-key-element")
-        .append("rect")
-          .attr("width", keyElementWidth)
-          .attr("height", keyElementHeight)
-          .attr("x", function(d) { return continentKeyScale(d); })
-          .attr("fill", function(d) { return continentColorScale(d); });
-        
-        //在矩形上写字
-      d3.selectAll("g.continent-key-element")
-        .append("text")
-          .attr("text-anchor", "middle")
-          .attr("x", function(d) { return continentKeyScale(d) + keyElementWidth/2; })
-          .text(function(d) { return continentNames[d]; });
-
-      // The text BBox has non-zero values only after rendering
-      d3.selectAll("g.continent-key-element text")
-          .attr("y", function(d) {
-            var textHeight = this.getBBox().height;
-            // The BBox.height property includes some extra height we need to remove
-            var unneededTextHeight = 4;
-            return ((keyElementHeight + textHeight) / 2) - unneededTextHeight;
-          });
+//      var keyWidth = keyElementWidth * continents.values().length;
+//      var continentKeyScale = d3.scaleBand()
+//        .domain(continents.values())
+//        .range([(width - keyWidth) / 2, (width + keyWidth) / 2]);
+//        
+//        
+//        //continent-key是底部的颜色图例栏
+//      svg.append("g")
+//        .attr("class", "continent-key")
+//        .attr("transform", "translate(0," + (height + offScreenYOffset) + ")")
+//        .selectAll("g")
+//        .data(continents.values())
+//        .enter()
+//          .append("g")
+//            .attr("class", "continent-key-element");
+//        
+//        //画底部矩形
+//      d3.selectAll("g.continent-key-element")
+//        .append("rect")
+//          .attr("width", keyElementWidth)
+//          .attr("height", keyElementHeight)
+//          .attr("x", function(d) { return continentKeyScale(d); })
+//          .attr("fill", function(d) { return continentColorScale(d); });
+//        
+//        //在矩形上写字
+//      d3.selectAll("g.continent-key-element")
+//        .append("text")
+//          .attr("text-anchor", "middle")
+//          .attr("x", function(d) { return continentKeyScale(d) + keyElementWidth/2; })
+//          .text(function(d) { return continentNames[d]; });
+//
+//      // The text BBox has non-zero values only after rendering
+//      d3.selectAll("g.continent-key-element text")
+//          .attr("y", function(d) {
+//            var textHeight = this.getBBox().height;
+//            // The BBox.height property includes some extra height we need to remove
+//            var unneededTextHeight = 4;
+//            return ((keyElementHeight + textHeight) / 2) - unneededTextHeight;
+//          });
     }
 
     function translateContinentKey(translation) {
-      continentKey
-        .transition()
-        .duration(500)
-        .attr("transform", translation);
+//      continentKey
+//        .transition()
+//        .duration(500)
+//        .attr("transform", translation);
     }
   }
 
@@ -144,14 +145,16 @@ function createMenulBubbleChart(error, countries, continentNames) {
       
     function keyClickFunction(country){
         var info = country.Key_Words;
-        var judgeP = false;
+        var judgeP = false;        
+        var Group = country.Group_Code;
+
         //判断是否存在重复元素
         if(TagsData.length > 0){
             judgeP = ifDublicated(TagsData,info);
         }
     
         if(!judgeP){
-            TagsData.push({id:TagsID,name:info,screen:info});
+            TagsData.push({id:TagsID,name:info,screen:info,Group_Code:Group});
             SelectedData.push(TagsID);
             TagsID += 1;
 

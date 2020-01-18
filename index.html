@@ -49,7 +49,7 @@
             <div class="radio">
               <label>
                 <input class="radioBut" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                 Theme & Art Categoary
+                 Theme
               </label>
             </div>
         </div>
@@ -82,6 +82,7 @@
     var TagsID = 0;
     var SelectedData = [];
     var checkedOne = "optionsRadios1";
+    var saveColorScale;
     
     radioListener();
     
@@ -136,6 +137,7 @@
                     for(var z=0; z<matchData.length; z++){
                         if(artistsArray[i].Artists_Texts.search(matchData[z])!=-1){
                             filterArtists.push(artistsArray[i]);
+                            filterArtists[filterArtists.length - 1].Group_Code = targetData[j].Group_Code;
                             ifmatch = true;
                             break;
                         }                    
@@ -147,7 +149,8 @@
                 } else {
                     if((artistsArray[i].Artists_Texts.search(targetData[j].name))!=-1){
                         matchingTime += 1;
-                        if(matchingTime >= 2){
+                        //用来控制层级筛选关系，现在只有一层的时候 matchingTime 为 1 即可出现结果，如果搜索层级增加，那么也需要增加该部分的数值
+                        if(matchingTime >= 1){
                                 filterArtists.push(artistsArray[i]);
                                 break;
                             }
@@ -173,17 +176,6 @@
                 matchString(TagsData,artistsArray,0,updatetheCircleMap);
                 break;
         }
-    }
-    
-    function updatetheCircleMap(filterArtists){
-        console.log('call back running');
-        console.log(filterArtists);
-        //remove current layout
-        $('#bubble-chart').empty();
-        $('#flags').attr('checked','checked');
-        
-        //draw new circle
-        createArtistsBubble(null,filterArtists)
     }
     
     function updatetheCircleMap(filterArtists){

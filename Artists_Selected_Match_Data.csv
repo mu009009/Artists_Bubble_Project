@@ -1,22 +1,26 @@
 Artists_Name,Primary_Link,Artists_Image,Artists_Texts,Work_Url_link,Weight,Artists_Code
-Joseph Kosuth,https://www.theartstory.org/artist/kosuth-joseph/artworks/,Image/Artists_Image/bio_kosuth_joseph.jpg,Race Conceptual Art,Carrie_Mae_Weems.jpg,32526560,A1
-Robert Adam,https://art21.org/read/robert-adams-photography-life-and-beauty/,Image/Artists_Image/Adams-Robert-450x450.jpg,Race Photography,Joseph_Kosuth_Work.jpg,2896680,A2
-Kara Walker,https://www.theartstory.org/artist/walker-kara/artworks/,Image/Artists_Image/bio_walker_kara.jpg,Race Conceptual Art,Kara_Walker.jpg,39666520,A3
-Carrie Mae Weems,https://www.pamm.org/collections/mayflowers-may-days-long-forgotten,Image/Artists_Image/11-17nwcmw.jpg,Race Photography,Robert_Adam_Work.jpg,55540,A4
-Jenny Holzer,https://www.moma.org/collection/works/106991,Image/Artists_Image/Jenny-Holzer-1-555x312.jpg,Race Conceptual Art & Installation Art,Jenny_Holzer_Work.jpg,70470,A5
-Helen Levitt,https://www.theartstory.org/artist/levitt-helen/artworks/,Image/Artists_Image/bio_levitt_helen.jpg,Race Photography,Helen_Levitt_Work.jpg,25021970,A6
-Chris Ofili,https://www.theartstory.org/artist/ofili-chris/artworks/,Image/Artists_Image/bio_ofili_chris.jpg,Race Young British Artist Race Painter and Race Sculptor,Chris_Ofili_Work.jpg,14610,A7
-William Kentridge,https://www.theartstory.org/artist/kentridge-william/artworks/,Image/Artists_Image/bio_kentridge_william.jpg,Race Video Art: Sleeper - Red (1997),William_Kentridge_Work.jpg,91820,A8
-Richard Avedon,https://www.theartstory.org/artist/avedon-richard/artworks/,Image/Artists_Image/bio_avedon_richard.jpg,Race Photography: Marian Anderson (1955),Richard_Avedon_Work.jpg,43416760,A9
-Santiago Sierra,https://www.benjaminmurphy.info/santiago-sierra/,Image/Artists_Image/dpa-spanish-artist-santiago-sierra-poses-for-a-picture-at-an-art-gallery-D3JPD8.jpg,Race Conceptual Art & Race Performance Art: 160cm Line Tattooed Four People,Santiago_Sierra_Work.jpg,3017710,A10
-Michael Ray Charles,https://www.wikiwand.com/en/Michael_Ray_Charles#/Work_and_research,Image/Artists_Image/charles265500x376.jpg,"Race Painter & Race Designer: (Forever Free) ¡®Servin with a smile¡¯, 1994",Michael_Ray_Charles_Work.jpg,103890,A11
-Robert Frank,https://www.theartstory.org/artist/frank-robert/artworks/,Image/Artists_Image/bio_frank_robert.jpg,Race Photography: The Americans: Trolley¨CNew Orleans (1955),Robert_Frank_Work.jpg,23968970,A12
-Jenny Holzer,https://www.theartstory.org/artist/holzer-jenny/artworks/,Image/Artists_Image/Jenny-Holzer-1-555x312.jpg,Gender Conceptual Art & Gender Installation Art: UNEX Sign #1 (Selections from the Survival Series) (1983),Jenny_Holzer_Work2.jpg,8544590,A13
-Judy Chicago,https://www.theartstory.org/artist/chicago-judy/artworks/,Image/Artists_Image/bio_chicago_judy.jpg,Gender Installation Art: Through the Flower (1973),Chicago_Judy_Work.jpg,9753970,A14
-Sherrie Levine,https://www.theartstory.org/artist/levine-sherrie/artworks/,Image/Artists_Image/bio_levine_sherrie.jpg,Gender Photography & Gender Conceptual Art & Sculpture: President Collage: 1 (1979),Sherrie_Levine_Work.jpg,388020,A15
-The Guerrilla Girls,https://www.theartstory.org/artist/guerrilla-girls/artworks/,Image/Artists_Image/bio_guerrilla_girls.jpg,Gender Photography & Gender Conceptual Art & Activist Art: Dearest Art Collector (1986),Guerrilla_Girls_Work.jpg,1377240,A16
-Isabel Oliver,https://www.theartstory.org/artist/oliver-isabel/artworks/,Image/Artists_Image/bio_oliver_isabel.jpg,Gender Conceptual Art: Happy Reunion (1970-73),Isabel_Oliver_Work.jpg,160995640,A17
-Carrie Mae Weems,https://www.pamm.org/collections/mayflowers-may-days-long-forgotten,Image/Artists_Image/11-17nwcmw.jpg,Gender Photography: May Flowers from May Days Long Forgotten,Robert_Adam_Work.jpg,55540,A18
-Jenny Holzer,https://www.moma.org/collection/works/106991,Image/Artists_Image/Jenny-Holzer-1-555x312.jpg,Gender Conceptual Art & Gender Installation Art: Living Series: "Some Days..." (1981) Conceptual Art & Installation Art: UNEX Sign #1 (Selections from the Survival Series) (1983),Jenny_Holzer_Work.jpg,70470,A19
-Chris Ofili,https://www.theartstory.org/artist/ofili-chris/artworks/,Image/Artists_Image/bio_ofili_chris.jpg,Gender Young British Artist/ Gender Painter and Gender Sculptor: The Holy Virgin Mary (1996),Chris_Ofili_Work.jpg,14610,A20
-Carrie Mae Weems,https://www.pamm.org/collections/mayflowers-may-days-long-forgotten,Image/Artists_Image/11-17nwcmw.jpg,Class Photography: May Flowers from May Days Long Forgotten,Robert_Adam_Work.jpg,32526560,A21
+Race,,Image/Artists_Image/Race_Cate.jpg,Race,Image/Artists_Image/Race_Cate.jpg,3416760,A1
+Sexuality,,Image/Artists_Image/Sexuality_Cate.jpg,Sexuality,Image/Artists_Image/Sexuality_Cate.jpg,3416760,A2
+Gender,,Image/Artists_Image/Gender_Cate.jpg,Gender,Image/Artists_Image/Gender_Cate.jpg,3416760,A3
+Class,,Image/Artists_Image/Class_Cate.jpg,Class,Image/Artists_Image/Class_Cate.jpg,3416760,A4
+Joseph Kosuth,https://www.theartstory.org/artist/kosuth-joseph/artworks/,Image/Artists_Image/bio_kosuth_joseph.jpg,Race Conceptual Art,Carrie_Mae_Weems.jpg,70470,A5
+Robert Adam,https://art21.org/read/robert-adams-photography-life-and-beauty/,Image/Artists_Image/Adams-Robert-450x450.jpg,Race Photography,Joseph_Kosuth_Work.jpg,55540,A6
+Kara Walker,https://www.theartstory.org/artist/walker-kara/artworks/,Image/Artists_Image/bio_walker_kara.jpg,Race Conceptual Art,Kara_Walker.jpg,70470,A7
+Carrie Mae Weems,https://www.pamm.org/collections/mayflowers-may-days-long-forgotten,Image/Artists_Image/11-17nwcmw.jpg,Race Photography,Robert_Adam_Work.jpg,55540,A8
+Jenny Holzer,https://www.moma.org/collection/works/106991,Image/Artists_Image/Jenny-Holzer-1-555x312.jpg,Race Conceptual Art & Installation Art,Jenny_Holzer_Work.jpg,70470,A9
+Helen Levitt,https://www.theartstory.org/artist/levitt-helen/artworks/,Image/Artists_Image/bio_levitt_helen.jpg,Race Photography,Helen_Levitt_Work.jpg,55540,A10
+Chris Ofili,https://www.theartstory.org/artist/ofili-chris/artworks/,Image/Artists_Image/bio_ofili_chris.jpg,Race Young British Artist Race Painter and Race Sculptor,Chris_Ofili_Work.jpg,70470,A11
+William Kentridge,https://www.theartstory.org/artist/kentridge-william/artworks/,Image/Artists_Image/bio_kentridge_william.jpg,Race Video Art: Sleeper - Red (1997),William_Kentridge_Work.jpg,55540,A12
+Richard Avedon,https://www.theartstory.org/artist/avedon-richard/artworks/,Image/Artists_Image/bio_avedon_richard.jpg,Race Photography: Marian Anderson (1955),Richard_Avedon_Work.jpg,70470,A13
+Santiago Sierra,https://www.benjaminmurphy.info/santiago-sierra/,Image/Artists_Image/dpa-spanish-artist-santiago-sierra-poses-for-a-picture-at-an-art-gallery-D3JPD8.jpg,Race Conceptual Art & Race Performance Art: 160cm Line Tattooed Four People,Santiago_Sierra_Work.jpg,55540,A14
+Michael Ray Charles,https://www.wikiwand.com/en/Michael_Ray_Charles#/Work_and_research,Image/Artists_Image/charles265500x376.jpg,"Race Painter & Race Designer: (Forever Free) ¡®Servin with a smile¡¯, 1994",Michael_Ray_Charles_Work.jpg,70470,A15
+Robert Frank,https://www.theartstory.org/artist/frank-robert/artworks/,Image/Artists_Image/bio_frank_robert.jpg,Race Photography: The Americans: Trolley¨CNew Orleans (1955),Robert_Frank_Work.jpg,55540,A16
+Jenny Holzer,https://www.theartstory.org/artist/holzer-jenny/artworks/,Image/Artists_Image/Jenny-Holzer-1-555x312.jpg,Gender Conceptual Art & Gender Installation Art: UNEX Sign #1 (Selections from the Survival Series) (1983),Jenny_Holzer_Work2.jpg,70470,A17
+Judy Chicago,https://www.theartstory.org/artist/chicago-judy/artworks/,Image/Artists_Image/bio_chicago_judy.jpg,Gender Installation Art: Through the Flower (1973),Chicago_Judy_Work.jpg,55540,A18
+Sherrie Levine,https://www.theartstory.org/artist/levine-sherrie/artworks/,Image/Artists_Image/bio_levine_sherrie.jpg,Gender Photography & Gender Conceptual Art & Sculpture: President Collage: 1 (1979),Sherrie_Levine_Work.jpg,70470,A19
+The Guerrilla Girls,https://www.theartstory.org/artist/guerrilla-girls/artworks/,Image/Artists_Image/bio_guerrilla_girls.jpg,Gender Photography & Gender Conceptual Art & Activist Art: Dearest Art Collector (1986),Guerrilla_Girls_Work.jpg,55540,A20
+Isabel Oliver,https://www.theartstory.org/artist/oliver-isabel/artworks/,Image/Artists_Image/bio_oliver_isabel.jpg,Gender Conceptual Art: Happy Reunion (1970-73),Isabel_Oliver_Work.jpg,70470,A21
+Carrie Mae Weems,https://www.pamm.org/collections/mayflowers-may-days-long-forgotten,Image/Artists_Image/11-17nwcmw.jpg,Gender Photography: May Flowers from May Days Long Forgotten,Robert_Adam_Work.jpg,55540,A22
+Jenny Holzer,https://www.moma.org/collection/works/106991,Image/Artists_Image/Jenny-Holzer-1-555x312.jpg,Gender Conceptual Art & Gender Installation Art: Living Series: "Some Days..." (1981) Conceptual Art & Installation Art: UNEX Sign #1 (Selections from the Survival Series) (1983),Jenny_Holzer_Work.jpg,70470,A23
+Chris Ofili,https://www.theartstory.org/artist/ofili-chris/artworks/,Image/Artists_Image/bio_ofili_chris.jpg,Gender Young British Artist/ Gender Painter and Gender Sculptor: The Holy Virgin Mary (1996),Chris_Ofili_Work.jpg,55540,A24
+Carrie Mae Weems,https://www.pamm.org/collections/mayflowers-may-days-long-forgotten,Image/Artists_Image/11-17nwcmw.jpg,Class Photography: May Flowers from May Days Long Forgotten,Robert_Adam_Work.jpg,70470,A25
