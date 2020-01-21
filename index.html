@@ -111,7 +111,7 @@
         switch(checkedOne){
             case "optionsRadios1":
                 d3.queue()
-                .defer(d3.csv, "Artists_Data.csv")
+                .defer(d3.csv, "Artists_Filter.csv")
                 .await(refresh_new_bubbles);
                 break;
             case "optionsRadios2":
