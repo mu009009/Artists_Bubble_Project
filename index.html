@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/normalize.css" /><!--CSS RESET-->
     <link rel="stylesheet" type="text/css" href="css/reset.css"><!--演示页面样式，使用时可以不引用-->
     <link rel="stylesheet" type="text/css" href="css/jquery.sTags.css"><!--标签插件样式-->
     <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.14.2/styles/monokai-sublime.min.css"><!--代码高亮样式-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/d3-queue.v3.min.js"></script>
     
@@ -25,10 +29,10 @@
 </head>
 <body>
     
-    <div class="container">
+    <div style="margin-top: 35px">
         
         <div id="inputDiv" style="width: 100%">
-            <input type="text" class="sTags-input" id="DemoInput1" style="width: inherit">
+<!--            <input type="text" class="sTags-input" id="DemoInput1" style="width: inherit">-->
         </div>
 
     <div id="controls">
@@ -37,9 +41,7 @@
         <span>
             <label><input id="flags" type="radio" name="fill" value="flags" style="display: none"></label>
         </span>
-        <div class = "col-4">
-        </div>
-        <div class="col-4">
+        <div class="col-12">
             <div class="radio" style="float: left; text-align: center">
               <label>
                 <input class="radioBut" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
@@ -53,20 +55,29 @@
               </label>
             </div>
         </div>
-        <div class="col-4">
+        
+        <div class="col-12" style="display: none" id="Art_Category">
+            <div class="btn-group" >
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Art Category Menu
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <button class="dropdown-item" type="button">Conceptual Art</button>
+                    <button class="dropdown-item" type="button">Photography</button>
+                    <button class="dropdown-item" type="button">Installation Art</button>
+                    <button class="dropdown-item" type="button">Young British Artist</button>
+                    <button class="dropdown-item" type="button">Painter</button>
+                    <button class="dropdown-item" type="button">Sculptor</button>
+                    <button class="dropdown-item" type="button">Video Art</button>
+                    <button class="dropdown-item" type="button">Performance Art</button>
+                    <button class="dropdown-item" type="button">Designer</button>                
+                    <button class="dropdown-item" type="button">Activist Art</button>              
+                </div>
+            </div>            
         </div>
 
     </div>
-        
-<!--
-    <div class="dropdown-menu">
-        <span class="dropdown-item-text">Dropdown item text</span>
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-    </div>    
--->
-        
+
     <div id='main_control' style="align-items: center; display: block; height: 50px">
         <div style="float: left; width: 5%">
             <button id="reset_btn" type="button" class="btn btn-primary" >Reset</button>
@@ -92,6 +103,8 @@
     var SelectedData = [];
     var checkedOne = "optionsRadios1";
     var saveColorScale;
+    var matchLevel = 1;
+    var filterTimes = 0;
     
     radioListener();
     
@@ -115,6 +128,7 @@
         //input the TagsData;
         var targetData = TagsData;
         //reset the whole visualization
+        matchLevel = 1;
         
         //choose the way to draw the artists circle
         switch(checkedOne){
@@ -131,10 +145,35 @@
         }
     });
     
+    $('.dropdown-item').on('click',function(event){
+        
+        var anotherKey = this.innerHTML
+
+        matchLevel = 2;
+        
+        if(filterTimes > 0){
+            TagsData.pop();
+        }
+        
+        var anotherTarget  = {id:TagsData.length,name:anotherKey,screen:anotherKey,Group_Code: "Null"};
+        
+        TagsData.push(anotherTarget);
+        filterTimes += 1;
+        
+        //绘制新的艺术家图形
+        $('#bubble-chart').empty();
+        d3.queue()
+            .defer(d3.csv, "Artists_Selected_Match_Data.csv")
+            .await(refresh_new_bubbles);
+    })
+    
     function matchString(targetData,artistsArray,mode, callback){
         
         var filterArtists = [];
         
+        console.log("check target");
+        console.log(targetData);
+             
         //match the artists with the TagsData;
         for(var i=0; i<artistsArray.length; i++){
             var matchingTime = 0;
@@ -159,7 +198,7 @@
                     if((artistsArray[i].Artists_Texts.search(targetData[j].name))!=-1){
                         matchingTime += 1;
                         //用来控制层级筛选关系，现在只有一层的时候 matchingTime 为 1 即可出现结果，如果搜索层级增加，那么也需要增加该部分的数值
-                        if(matchingTime >= 1){
+                        if(matchingTime >= matchLevel){
                                 filterArtists.push(artistsArray[i]);
                                 break;
                             }
@@ -198,7 +237,7 @@
         createArtistsBubble(null,filterArtists)
     }
     
-    function radioListener() {
+    function radioListener() {    
         d3.selectAll('.radioBut')
           .on("change", function() {
             var radioList = document.getElementsByClassName("radioBut");
@@ -214,6 +253,17 @@
     
     function updatePainting(currentMode){
         console.log(currentMode);
+        
+        //reset Category Menu
+        $("#Art_Category").attr("style","display: none");
+        
+        //reset TagsData and filter
+        TagsData = [];
+        filterTimes = 0;
+        
+        //reset KeyWords Space
+        $('#inputDiv').empty();
+        
         switch(currentMode){
             case 'optionsRadios1': 
                 $('#bubble-chart').empty();

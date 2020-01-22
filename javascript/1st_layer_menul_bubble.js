@@ -134,8 +134,8 @@ function create1st_MenulBubble(error, countries, continentNames) {
     function updateCountryInfo(country) {
       var info = "";
       if (country) {
-        info = country.Key_Words;
-//        info = "";
+//        info = country.Key_Words;
+        info = "";
       }
       d3.select("#title_space").html(info);
     }
@@ -167,6 +167,10 @@ function create1st_MenulBubble(error, countries, continentNames) {
                 color:1
             })
         }
+        
+        //显示顶部 Category 按钮
+        // drawing now
+        $("#Art_Category").attr("style","text-align: center; display: block; transition: 0.5s;");
         
         
         
