@@ -108,10 +108,30 @@ function createArtistsBubble(error, countries) {
     }
       
     function keyClickFunction(country){
-        //jump to the link window
-        if(country.Primary_Link.length > 0) {
-            window.location.href = country.Primary_Link
+        
+        if(checkedOne == "optionsRadios1") {
+            //jump to the link window
+            if(country.Primary_Link.length > 0) {
+                window.location.href = country.Primary_Link
+            }            
+        } else {
+            //Prepare the PopOver
+            if($('#PopOver_Base').css("display")=="none"){
+                $('#PopOver_Base').css("display","block");
+                //check country
+//                console.log(country);
+                $('#PopOver_Base').css("top",country.y);
+                $('#PopOver_Base').css("left",country.x);
+                $('#PopOver_Title').html(country.Artists_Name+" Work Eg");
+                $('#PopOver_BakcImage').css("background-image","url(Image/Work_Image/"+country.Work_Image_link+")");
+                $("#Artists_Link").attr('href',country.Primary_Link);
+                $("#Work_Link").attr('href',country.Work_Url_link);
+                
+            } else {
+                $('#PopOver_Base').css("display","none");
+            }
         }
+
     }
       
   }
