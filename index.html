@@ -70,11 +70,26 @@
                     <button class="dropdown-item" type="button">Sculptor</button>
                     <button class="dropdown-item" type="button">Video Art</button>
                     <button class="dropdown-item" type="button">Performance Art</button>
-                    <button class="dropdown-item" type="button">Designer</button>                
+                    <button class="dropdown-item" type="button">Designer</button>  
                     <button class="dropdown-item" type="button">Activist Art</button>              
                 </div>
             </div>            
         </div>
+        
+        <div class="col-12" style="display: none" id="Theme_Category">
+            <div class="btn-group" >
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Theme Menu
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <button class="dropdown-item" type="button">race</button>
+                    <button class="dropdown-item" type="button">gender</button>
+                    <button class="dropdown-item" type="button">sexuality</button>
+                    <button class="dropdown-item" type="button">religion</button>
+                    <button class="dropdown-item" type="button">mental ability</button>
+                </div>
+            </div>            
+        </div>        
 
     </div>
 
@@ -152,6 +167,15 @@
         //choose the way to draw the artists circle
         switch(checkedOne){
             case "optionsRadios1":
+                if(targetData.length == 1){
+                    if(targetData[0].name == 'mental ability' || "race"
+                       || "gender"
+                       || "sexuality"
+                       || "religion") {
+                            console.log("Run here");
+                            $("#Theme_Category").attr("style","text-align: center; display: block; transition: 0.5s;");
+                    }
+                }
                 d3.queue()
                 .defer(d3.csv, "Artists_Filter_1900.csv")
                 .await(refresh_new_bubbles);
@@ -170,6 +194,10 @@
 
         matchLevel = 2;
         
+        if(anotherKey == 'mental ability') {
+            matchLevel = 3;
+        }
+        
         if(filterTimes > 0){
             TagsData.pop();
         }
@@ -180,10 +208,31 @@
         filterTimes += 1;
         
         //绘制新的艺术家图形
-        $('#bubble-chart').empty();
-        d3.queue()
-            .defer(d3.csv, "Artists_Selected_Match_Data.csv")
-            .await(refresh_new_bubbles);
+        console.log(checkedOne);
+        if(checkedOne == "optionsRadios2"){
+            $('#bubble-chart').empty();
+            d3.queue()
+                .defer(d3.csv, "Artists_Selected_Match_Data.csv")
+                .await(refresh_new_bubbles);            
+        } else {
+            console.log(TagsData[0].name);
+            console.log(anotherKey);
+            if(TagsData[0].name != anotherKey) {
+                $('#bubble-chart').empty();
+                d3.queue()
+                    .defer(d3.csv, "Artists_Filter_1900.csv")
+                    .await(refresh_new_bubbles);  
+            } else {
+                console.log("The Same");
+                TagsData.pop();
+                filterTimes = 0;
+                matchLevel = 1;
+                $('#bubble-chart').empty();
+                d3.queue()
+                    .defer(d3.csv, "Artists_Filter_1900.csv")
+                    .await(refresh_new_bubbles);                  
+            }
+        }
     })
     
     function matchString(targetData,artistsArray,mode, callback){
@@ -198,15 +247,20 @@
             var matchingTime = 0;
             for(var j=0; j<targetData.length;j++){
                 //split str, match only with keywords
-                var ifmatch = false;
+                var ifmatch = false;              
                 if( mode == 1) {
                     var matchData = targetData[j].name.trim().split(/\s+/);
                     for(var z=0; z<matchData.length; z++){
                         if(artistsArray[i].Artists_Texts.search(matchData[z])!=-1){
-                            filterArtists.push(artistsArray[i]);
-                            filterArtists[filterArtists.length - 1].Group_Code = targetData[j].Group_Code;
-                            ifmatch = true;
-                            break;
+                            matchingTime += 1;
+                            //用来控制层级筛选关系，现在只有一层的时候 matchingTime 为 1 即可出现结果，如果搜索层级增加，那么也需要增加该部分的数值
+                            
+                            if(matchingTime >= matchLevel) {
+                                filterArtists.push(artistsArray[i]);
+                                filterArtists[filterArtists.length - 1].Group_Code = targetData[j].Group_Code;
+                                ifmatch = true;
+                                break;
+                            }
                         }                    
                     }
                     // when match the string, break the keywords loop, run another artists Matching
@@ -275,6 +329,7 @@
         
         //reset Category Menu
         $("#Art_Category").attr("style","display: none");
+        $("#Theme_Category").attr("style","display: none");
         
         //reset TagsData and filter
         TagsData = [];

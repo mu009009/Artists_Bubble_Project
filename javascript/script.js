@@ -35,7 +35,7 @@ function createArtistsBubble(error, countries) {
   createForces();
   createForceSimulation();
   addFlagDefinitions();
-  addFillListener();    
+  addFillListener();
 
   function createSVG() {
     svg = d3.select("#bubble-chart")

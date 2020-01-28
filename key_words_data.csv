@@ -4,19 +4,18 @@ social,AA,2896680
 responsibility,AA,39666520
 protests,AA,55540
 freedom,AA,70470
-democracy,AA,25021970
+democracy,AA,91820
 social change,AA,14610
 social,AA,91820
-power,AA,43416760
-political appeal,AA,3017710
+power,AA,91820
+political appeal,AA,91820
 human condition,AA,103890
-civil rights,AA,23968970
+civil rights,AA,91820
 truth,AA,8544590
 seeking truth,AA,9753970
 challenging power,AA,388020
-race,AA,1377240
-class,AA,160995640
-sexuality,AA,284220
+religion,RA,1311050530
+sexuality,AA,1311050530
 1960s-1970s feminist movements,AA,9495830
 civil rights movements,AA,11299190
 anti-totalitarian governments,AA,359290
@@ -39,7 +38,7 @@ activities,RA,59970
 participation varied levels,PA,4900270
 sociability,PA,14037470
 social consciousness,PA,17948140
-political engagement,PA,1376048940
+political engagement,PA,23381040
 neighborhood,PA,48228700
 interactive,PA,788470
 public sculpture,PA,4620330
@@ -69,8 +68,6 @@ environment,SESP,5503460
 education,SESP,64395350
 housing,SESP,268610
 labor,SESP,282760
-gender,SESP,1725290
-race,SESP,1990920
 colonialism,SESP,3999810
 gentrification,SESP,80688550
 immigration,SESP,27409890
@@ -92,7 +89,7 @@ artist function,SESP,757560
 artist role,SESP,7287980
 artist origin,SESP,9855020
 work definition,SESP,329430
-influence direction,SESP,1311050530
+influence direction,SESP,23381040
 work origination,SESP,257563820
 place,SESP,79109270
 issue,SESP,36423400
@@ -144,7 +141,7 @@ drag king,DSJG,625780
 first nation people,DSJG,5130
 ethnicity,DSJG,34377510
 fundamental attribution error,DSJG,27977860
-gender,DSJG,53897150
+gender,PA,1311050530
 gendered,DSJG,2458830
 gender bending,DSJG,10220
 hate crime,DSJG,28513700
@@ -185,7 +182,7 @@ prejudice,DSJG,31540370
 privilege,DSJG,15129270
 queer,DSJG,8850980
 questioning,DSJG,96470
-race,DSJG,6453180
+race,DSJG,1311050530
 racial & ethnic identity,DSJG,5603740
 racial equity,DSJG,5426260
 racial justice,DSJG,2067530
@@ -216,7 +213,7 @@ two spirit,DSJG,9920
 veteran status,DSJG,39032380
 white privilege,DSJG,44823770
 structural white privilege,DSJG,9156960
-mental health,AA,18502410
-mental illness,AA,23381040
-mental disorder,AA,67959360
-mental ability,AA,78665830
+mental health,SESP,23381040
+mental illness,SESP,23381040
+mental disorder,SESP,67959360
+mental ability,SESP,1311050530
