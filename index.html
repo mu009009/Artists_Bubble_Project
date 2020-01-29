@@ -86,7 +86,7 @@
                     <button class="dropdown-item" type="button">gender</button>
                     <button class="dropdown-item" type="button">sexuality</button>
                     <button class="dropdown-item" type="button">religion</button>
-                    <button class="dropdown-item" type="button">mental ability</button>
+                    <button class="dropdown-item" type="button">disability</button>
                 </div>
             </div>            
         </div>        
@@ -167,15 +167,16 @@
         //choose the way to draw the artists circle
         switch(checkedOne){
             case "optionsRadios1":
-                if(targetData.length == 1){
-                    if(targetData[0].name == 'mental ability' || "race"
-                       || "gender"
-                       || "sexuality"
-                       || "religion") {
-                            console.log("Run here");
-                            $("#Theme_Category").attr("style","text-align: center; display: block; transition: 0.5s;");
-                    }
-                }
+//                if(targetData.length > 0){
+//                    if(targetData[0].name == 'disability' || "race"
+//                       || "gender"
+//                       || "sexuality"
+//                       || "religion") {
+//                            console.log("Run here");
+//                            $("#Theme_Category").attr("style","text-align: center; display: block; transition: 0.5s;");
+//                    }
+//                }
+                $("#Theme_Category").attr("style","text-align: center; display: block; transition: 0.5s;");
                 d3.queue()
                 .defer(d3.csv, "Artists_Filter_1900.csv")
                 .await(refresh_new_bubbles);
@@ -194,9 +195,9 @@
 
         matchLevel = 2;
         
-        if(anotherKey == 'mental ability') {
-            matchLevel = 3;
-        }
+//        if(anotherKey == 'mental ability') {
+//            matchLevel = 3;
+//        }
         
         if(filterTimes > 0){
             TagsData.pop();
