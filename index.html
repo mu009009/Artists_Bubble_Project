@@ -167,15 +167,6 @@
         //choose the way to draw the artists circle
         switch(checkedOne){
             case "optionsRadios1":
-//                if(targetData.length > 0){
-//                    if(targetData[0].name == 'disability' || "race"
-//                       || "gender"
-//                       || "sexuality"
-//                       || "religion") {
-//                            console.log("Run here");
-//                            $("#Theme_Category").attr("style","text-align: center; display: block; transition: 0.5s;");
-//                    }
-//                }
                 $("#Theme_Category").attr("style","text-align: center; display: block; transition: 0.5s;");
                 d3.queue()
                 .defer(d3.csv, "Artists_Filter_1900.csv")
@@ -218,21 +209,16 @@
         } else {
             console.log(TagsData[0].name);
             console.log(anotherKey);
-            if(TagsData[0].name != anotherKey) {
-                $('#bubble-chart').empty();
-                d3.queue()
-                    .defer(d3.csv, "Artists_Filter_1900.csv")
-                    .await(refresh_new_bubbles);  
-            } else {
+            if(TagsData[0].name == anotherKey) {
                 console.log("The Same");
                 TagsData.pop();
                 filterTimes = 0;
                 matchLevel = 1;
-                $('#bubble-chart').empty();
+            }
+            $('#bubble-chart').empty();
                 d3.queue()
                     .defer(d3.csv, "Artists_Filter_1900.csv")
-                    .await(refresh_new_bubbles);                  
-            }
+                    .await(refresh_new_bubbles); 
         }
     })
     
@@ -255,7 +241,6 @@
                         if(artistsArray[i].Artists_Texts.search(matchData[z])!=-1){
                             matchingTime += 1;
                             //用来控制层级筛选关系，现在只有一层的时候 matchingTime 为 1 即可出现结果，如果搜索层级增加，那么也需要增加该部分的数值
-                            
                             if(matchingTime >= matchLevel) {
                                 filterArtists.push(artistsArray[i]);
                                 filterArtists[filterArtists.length - 1].Group_Code = targetData[j].Group_Code;
@@ -288,7 +273,6 @@
     }
     
     function refresh_new_bubbles(error, data){
-        
         var artistsArray = data;
         switch(checkedOne){
             case "optionsRadios1":
