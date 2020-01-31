@@ -45,8 +45,6 @@ public sculpture,PA,4620330
 community project,PA,77266810
 public art,PA,20830
 emotional impact,PA,4807850
-emotional mainpulation,PA,22701560
-emotional abuse,PA,77266810
 shared feeling,PA,22701560
 digital technology,PA,4240320
 internet,PA,11389560
@@ -144,7 +142,6 @@ first nation people,DSJG,5130
 ethnicity,DSJG,34377510
 fundamental attribution error,DSJG,27977860
 gender,PA,1311050530
-gender role,PA,28513700
 gendered,DSJG,2458830
 gender bending,DSJG,10220
 hate crime,DSJG,28513700
@@ -220,3 +217,6 @@ mental health,SESP,23381040
 mental illness,SESP,23381040
 mental disorder,SESP,67959360
 disability,SESP,1311050530
+gender role,NEW,77266810
+emotional mainpulation,NEW,77266810
+emotional abuse,NEW,77266810
