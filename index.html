@@ -178,7 +178,7 @@
     
 //下拉菜单按钮的父按钮判断部分
     $('.btn-secondary').on('click',function(event){
-        parentRecord = this.innerHTML;
+        parentRecord = this.id;
     })
     
     
@@ -189,11 +189,9 @@
 
         matchLevel = 2;
         
-        console.log(parentRecord);
-        
-        if(parentRecord == 'Art Category Menu') {
+        if(parentRecord == 'ACB') {
             $('#ACB').html(anotherKey);
-        } else if(parentRecord == 'Theme Menu'){
+        } else if(parentRecord == 'TMB'){
             $('#TMB').html(anotherKey);
         }
         
