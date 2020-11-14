@@ -134,6 +134,7 @@
     var saveColorScale;
     var matchLevel = 1;
     var filterTimes = 0;
+    var parentRecord = null;
     
     radioListener();
     
@@ -179,11 +180,25 @@
         }
     });
     
+//下拉菜单按钮的父按钮判断部分
+    $('.btn-secondary').on('click',function(event){
+        parentRecord = this.innerHTML;
+        console.log('check record: '+parentRecord);
+    })
+    
+    
+//下拉菜单控制部分    
     $('.dropdown-item').on('click',function(event){
         
         var anotherKey = this.innerHTML
 
         matchLevel = 2;
+        
+        if(parentRecord == 'Art Category Menu') {
+            $('#ACB').html = anotherKey;
+        } else if(parentRecord == 'Theme Menu'){
+            $('#TMB').html = anotherKey;
+        }
         
 //        if(anotherKey == 'mental ability') {
 //            matchLevel = 3;
@@ -304,6 +319,9 @@
                     break;
                 }
             }
+            //重设子目录按钮文字
+            $('#ACB').html = 'Art Categroy Menu';
+            $('#TMB').html = 'Theme Menu';
             updatePainting(checkedOne)
           });
     }
