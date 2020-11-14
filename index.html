@@ -183,7 +183,6 @@
 //下拉菜单按钮的父按钮判断部分
     $('.btn-secondary').on('click',function(event){
         parentRecord = this.innerHTML;
-        console.log('check record: '+parentRecord);
     })
     
     
@@ -194,10 +193,12 @@
 
         matchLevel = 2;
         
+        console.log(parentRecord);
+        
         if(parentRecord == 'Art Category Menu') {
-            $('#ACB').html = anotherKey;
+            $('#ACB').html(anotherKey);
         } else if(parentRecord == 'Theme Menu'){
-            $('#TMB').html = anotherKey;
+            $('#TMB').html(anotherKey);
         }
         
 //        if(anotherKey == 'mental ability') {
